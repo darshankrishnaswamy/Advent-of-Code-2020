@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <utility>
 #include <vector>
 #include <map>
 #include <set>
@@ -63,16 +62,8 @@ void loadData() {
 bool contains(map<string, string> person, string str){
     return person.find(str) != person.end();
 }
-/*
- * byr (Birth Year)
-iyr (Issue Year)
-eyr (Expiration Year)
-hgt (Height)
-hcl (Hair Color)
-ecl (Eye Color)
-pid (Passport ID)
-cid (Country ID)
- */
+
+
 bool valid(map<string, string> person){
     return contains(person,"byr") && contains(person, "iyr") && contains(person, "eyr") && contains(person, "hgt") &&
          contains(person, "hcl") && contains(person, "ecl") && contains(person, "pid");
