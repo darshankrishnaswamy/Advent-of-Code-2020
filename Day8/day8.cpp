@@ -64,7 +64,7 @@ int check_infinite(vector<pair<string, int>> _ops){
 }
 
 int part2(vector<pair<string, int>> _ops){
-    for(int i = 0; i < ops.size(); i++){
+    for(int i = 0; i < _ops.size(); i++){
         if(_ops[i].first == "nop"){
             _ops[i].first = "jmp";
             int b = check_infinite(_ops);
