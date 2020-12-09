@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <map>
+
 using namespace std;
 struct bag{
     string color;
@@ -11,6 +12,11 @@ struct bag{
 vector<bag> bags;
 map<string, bag> bag_map;
 
+/**
+ * Splits a string at commas (and removes the spaces at the front)
+ * @param str the string to split
+ * @return a list of the strings
+ */
 vector<string> split_at_comma(string str){
     vector<string> out;
     int prevInd = 0;
@@ -24,6 +30,11 @@ vector<string> split_at_comma(string str){
     return out;
 }
 
+/**
+ * Reads a string and returns a pair<string, int> containing the color of the bag and the quantity
+ * @param str the string describing the child bag (ex: "2 faded red bags")
+ * @return a pair of the color and quantity (ex: pair of "faded red bags" and the number 2)
+ */
 pair<string, int> get_child(const string& str){
     int spaceInd = 0;
     for(int i = 0; i < str.length(); i++){
@@ -48,6 +59,11 @@ pair<string, int> get_child(const string& str){
     return p;
 }
 
+/**
+ * Reads in a list of bags and returns a list of children
+ * @param str
+ * @return
+ */
 vector<pair<string, int>> get_bags(const string& str){
     vector<pair<string, int>> out;
     if(str == "no other bags.") return out;
@@ -85,10 +101,10 @@ void load_data(){
 
 }
 
-bool test_bag(const bag& b){
+bool validate_bag(const bag& b){
     for(const pair<string, int>& p : b.children){
         if(p.first == "shiny gold") return true;
-        if(test_bag(bag_map[p.first])) return true;
+        if(validate_bag(bag_map[p.first])) return true;
     }
 
     return false;
@@ -97,7 +113,7 @@ bool test_bag(const bag& b){
 int part1(){
     int count = 0;
     for(const bag& b : bags){
-        if(test_bag(b)) count++;
+        if(validate_bag(b)) count++;
     }
     return count;
 }
