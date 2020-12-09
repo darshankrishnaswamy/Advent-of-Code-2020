@@ -6,7 +6,7 @@
 using namespace std;
 
 long long part1(){
-    ifstream fin("day8.txt");
+    ifstream fin("day9.txt");
     queue<long long> q;
     set<long long> s;
     for(int i = 0; i < 25; i++) {
@@ -41,7 +41,7 @@ long long part1(){
 }
 
 long long part2(){
-    ifstream fin("day8.txt");
+    ifstream fin("day9.txt");
     long long data[1000];
     for(long long & i : data){
         fin >> i;
