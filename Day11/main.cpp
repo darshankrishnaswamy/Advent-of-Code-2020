@@ -55,8 +55,7 @@ char change(int x, int y){
     }
     else if(c=='L')
         return emptyHelper(x, y);
-    else
-        return '.';
+
 }
 
 bool single_sim(){
