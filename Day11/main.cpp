@@ -83,11 +83,7 @@ int part1(){
 
 
     while(!single_sim()){
-        single_sim();
     }
-
-    single_sim();
-    single_sim();
 
     int out = 0;
     for(auto & i : grid) {
@@ -104,7 +100,6 @@ int getOcc2(int x, int y){
     for(auto & v : vectors) {
         int i = 1;
         while(x + v[1]*i >= 0 && x + v[1]*i < WIDTH && y+v[0]*i >=0 && y+v[0]*i < HEIGHT) {
-//            cout << i << endl;
             char c = grid[x + v[1]*i][y + v[0]*i];
             if(c == 'L')
                 break;
